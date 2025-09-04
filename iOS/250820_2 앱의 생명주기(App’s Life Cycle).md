@@ -76,7 +76,3 @@ CPU 자원은 거의 사용하지 않고(걍 앱이 멈춘 상태) 메모리에�
 Suspended 상태의 앱들은 메모리가 부족해지면 시스템에 의해 강제 종료될 수 있음
 
 </aside>
-
-![image.png](%EC%95%B1%EC%9D%98%20%EC%83%9D%EB%AA%85%EC%A3%BC%EA%B8%B0(App%E2%80%99s%20Life%20Cycle)%20255933c2941a81f4a1f5d0cb3efcbbc2/image.png)
-
-![image.png](%EC%95%B1%EC%9D%98%20%EC%83%9D%EB%AA%85%EC%A3%BC%EA%B8%B0(App%E2%80%99s%20Life%20Cycle)%20255933c2941a81f4a1f5d0cb3efcbbc2/image%201.png)
