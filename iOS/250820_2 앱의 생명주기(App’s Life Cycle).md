@@ -76,7 +76,3 @@ CPU 자원은 거의 사용하지 않고(걍 앱이 멈춘 상태) 메모리에�
 Suspended 상태의 앱들은 메모리가 부족해지면 시스템에 의해 강제 종료될 수 있음
 
 </aside>
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
