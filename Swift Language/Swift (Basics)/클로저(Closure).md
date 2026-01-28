@@ -1,7 +1,5 @@
 # 클로저(Closure)
 
-생성일: 2025년 8월 20일 오후 10:26
-
 ## 클로저(Closure)란?
 
 **주변 문맥으로부터 값을 캡처할 수 있는 코드 블록**
@@ -18,7 +16,7 @@ let closure = { print("Juhui") }
 
 이런 형태의 익명함수
 
-⇒ 보통 클로저(Closure)라고 하면 위 같은 익명함수(Unnamed Closure)를 말함
+**⇒ 보통 클로저(Closure)라고 하면 위 같은 익명함수(Unnamed Closure)를 말함**
 
 - 함수 : 이름이 있고 func 키워드로 정의
 - 클로저 : 이름이 없어도 되고, 변수나 상수에 담아서 사용 가능
@@ -216,3 +214,51 @@ func doSomething() {
 근데 이건 상수로 캡쳐돼서 클로저 내부에서 값을 못 바꿈
 
 </aside>
+
+## weak self
+
+**클로저가 self를 약하게 캡쳐하게 해서 순환 참조를 방지하는 방법**
+
+<aside>
+
+- 클로저 내부에서 self를 사용하면 클로저가 self를 강하게 캡쳐하게 됨
+- 근데 self도 그 클로저를 강하게 참조하고 있으면 순환 참조 발생
+- 이때 `weak self`를 사용하면 클로저가 self를 약하게 캡쳐함
+- 그래서 참조 카운트가 증가하지 않아서 순환 참조도 안 생김!!
+
+- 최종적으로 클로저가 존재하더라도 self가 다른 곳에서 더 이상 필요 없으면 ARC가 해제할 수 있게 됨
+- self 해체 → 클로저 내부에서의 self는 자동으로 nil
+</aside>
+
+그니까 weak self를 쓰면 한 객체가 참조 카운트에 포함안되게 해서 필요없을 땐 해제할 수 있다는 거임용
+
+```swift
+// 클로저 기본 구조
+{ (매개변수) -> 반환타입 in // in을 기준으로 앞은 Closure Head
+    실행할 코드 // 뒤는 Closure Body
+}
+```
+
+```swift
+{ [weak self] (매개변수) -> 반환타입 in
+    // 실행할 코드
+}
+```
+
+```swift
+someFunction { [weak self] in
+    // weak self로 캡처
+    self?.doSomething()  // self는 다른 참조가 사라지면 nil이 될 수 있으니까 옵셔널인 거임
+}
+```
+
+```swift
+someAsyncFunction { [weak self] result in
+    guard let self = self else { return }  // self를 안전하게 언래핑
+    
+    // 이제 self를 바로 사용 가능
+    processResult(result)
+    updateUI()
+    saveData()
+}
+```
