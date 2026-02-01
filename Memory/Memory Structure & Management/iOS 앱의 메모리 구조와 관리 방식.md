@@ -23,7 +23,7 @@
 
 ### 관리 방식
 
-- ARC(Automatic Reference Counting)로 메모리를 관리 [ARC(Automatic Reference Counting)]
+- ARC(Automatic Reference Counting)로 메모리를 관리
 </aside>
 
 ---
