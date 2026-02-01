@@ -23,7 +23,7 @@
 
 ### 관리 방식
 
-- ARC(Automatic Reference Counting)로 메모리를 관리 [ARC(Automatic Reference Counting)](https://www.notion.so/ARC-Automatic-Reference-Counting-256933c2941a80cf9455fe3425b48fdf?pvs=21)
+- ARC(Automatic Reference Counting)로 메모리를 관리 [ARC(Automatic Reference Counting)]
 </aside>
 
 ---
